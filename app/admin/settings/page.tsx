@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth.config";
 import { redirect } from "next/navigation";
 import AdminHeader from "@/components/admin/AdminHeader";
 import SettingsForm from "@/components/admin/SettingsForm";

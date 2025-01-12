@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth.config";
 import { prisma } from "@/lib/prisma";
 import { applyRateLimit } from "@/lib/rateLimit";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     await applyRateLimit(request);
     
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     await applyRateLimit(request);
 

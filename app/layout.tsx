@@ -1,7 +1,7 @@
 import { Raleway } from 'next/font/google';
 import "./globals.css";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth.config";
 import SessionProvider from "@/components/SessionProvider";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import Navbar from "@/components/Navbar";

@@ -1,6 +1,6 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth.config";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 
 export default async function AdminLayout({
@@ -10,8 +10,12 @@ export default async function AdminLayout({
 }) {
   const session = await getServerSession(authOptions);
 
-  if (!session?.user || session.user.role !== "ADMIN") {
+  if (!session || !session.user) {
     redirect("/auth/login");
+  }
+
+  if (session.user.role !== "ADMIN") {
+    redirect("/");
   }
 
   return (

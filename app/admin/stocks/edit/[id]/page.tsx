@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth.config";
 import { redirect } from "next/navigation";
 import AdminHeader from "@/components/admin/AdminHeader";
 import StockForm from "@/components/admin/StockForm";
